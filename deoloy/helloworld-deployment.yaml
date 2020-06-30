@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Auth-Service-deployment
+  namespace: shop
+  labels:
+    app: Auth-Service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Auth-Service
+  template:
+    metadata:
+      labels:
+        app: Auth-Service
+    spec:
+      containers:
+      - name: Auth-Service
+        image: siddhi/spring-boot:aparna
+        ports:
+        - containerPort: 8080
+
